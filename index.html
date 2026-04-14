@@ -224,7 +224,77 @@ body{background:#1a1a2e;display:flex;justify-content:center;align-items:flex-sta
 .page-flex{display:flex;flex-direction:column;height:100%;}
 .page-scroll{flex:1;overflow-y:auto;scrollbar-width:none;}
 .page-scroll::-webkit-scrollbar{display:none;}
-</style>
+
+/* ═══ AI 投顾数字人 ═══ */
+.ai-btn-center{position:absolute;left:50%;transform:translateX(-50%) translateY(-28px);width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--gold-d),var(--gold),var(--gold-l));box-shadow:0 8px 32px rgba(201,168,76,0.5),0 0 0 3px rgba(201,168,76,0.3);display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:10;transition:transform 0.2s,box-shadow 0.2s;}
+.ai-btn-center:hover{transform:translateX(-50%) translateY(-28px) scale(1.08);box-shadow:0 12px 40px rgba(201,168,76,0.6),0 0 0 4px rgba(201,168,76,0.4);}
+.ai-btn-center:active{transform:translateX(-50%) translateY(-28px) scale(0.95);}
+.ai-btn-inner{width:52px;height:52px;border-radius:50%;background:rgba(26,18,0,0.85);display:flex;align-items:center;justify-content:center;border:2px solid rgba(201,168,76,0.6);}
+.ai-glow-ring{position:absolute;inset:-6px;border-radius:50%;border:2px solid rgba(201,168,76,0.4);animation:ai-pulse 2s ease-in-out infinite;}
+@keyframes ai-pulse{0%,100%{opacity:0.4;transform:scale(1);}50%{opacity:0.8;transform:scale(1.08);}}
+
+/* AI 投顾全屏对话页面 */
+.ai-page{position:absolute;inset:0;background:linear-gradient(180deg,#0a0618 0%,#0d0a24 50%,#0a0e1a 100%);overflow:hidden;z-index:100;}
+.ai-header{position:absolute;top:0;left:0;right:0;height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;background:rgba(10,6,18,0.95);border-bottom:0.5px solid rgba(201,168,76,0.15);z-index:20;}
+.ai-close-btn{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;cursor:pointer;border:0.5px solid rgba(201,168,76,0.2);}
+.ai-title-wrap{display:flex;align-items:center;gap:8px;}
+.ai-status-dot{width:8px;height:8px;border-radius:50%;background:#52c41a;animation:status-blink 1.5s ease-in-out infinite;}
+@keyframes status-blink{0%,100%{opacity:1;}50%{opacity:0.5;}}
+.ai-title-text{font-size:15px;font-weight:700;color:var(--text);}
+.ai-time-badge{font-size:11px;color:var(--gold);background:rgba(201,168,76,0.15);padding:3px 10px;border-radius:12px;border:0.5px solid rgba(201,168,76,0.3);}
+
+/* 数字人虚拟形象区域 */
+.ai-avatar-zone{position:absolute;top:52px;left:0;right:0;height:260px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;}
+.ai-avatar-frame{width:180px;height:180px;border-radius:50%;position:relative;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at center,rgba(201,168,76,0.08) 0%,transparent 70%);}
+.ai-avatar-ring{position:absolute;inset:0;border-radius:50%;border:3px solid rgba(201,168,76,0.25);animation:ring-rotate 8s linear infinite;}
+@keyframes ring-rotate{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+.ai-avatar-ring2{position:absolute;inset:-15px;border-radius:50%;border:1.5px solid rgba(201,168,76,0.15);animation:ring-rotate 12s linear infinite reverse;}
+.ai-avatar-inner{width:140px;height:140px;border-radius:50%;background:linear-gradient(135deg,rgba(201,168,76,0.2),rgba(232,204,136,0.1),rgba(139,105,20,0.3));display:flex;align-items:center;justify-content:center;border:2px solid rgba(201,168,76,0.4);box-shadow:0 0 60px rgba(201,168,76,0.2),inset 0 0 40px rgba(201,168,76,0.1);}
+.ai-avatar-glass{width:120px;height:120px;border-radius:50%;background:rgba(255,255,255,0.03);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;border:1px solid rgba(201,168,76,0.3);position:relative;overflow:hidden;}
+.ai-avatar-icon{width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,var(--gold-d),var(--gold));display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(201,168,76,0.4);}
+.ai-avatar-name{font-size:16px;font-weight:700;color:var(--gold);margin-top:12px;}
+.ai-avatar-title{font-size:12px;color:var(--text3);margin-top:4px;}
+
+/* 快捷提问卡片区域 */
+.ai-quick-zone{position:absolute;top:312px;left:0;right:0;padding:0 16px;}
+.ai-quick-label{font-size:11px;color:var(--gold);font-weight:600;letter-spacing:0.5px;margin-bottom:10px;padding-left:2px;}
+.ai-quick-cards{display:flex;flex-direction:column;gap:8px;}
+.ai-qcard{background:rgba(255,255,255,0.04);border:0.5px solid rgba(201,168,76,0.2);border-radius:14px;padding:12px 14px;display:flex;align-items:center;gap:10px;cursor:pointer;transition:background 0.2s,border 0.2s;}
+.ai-qcard:hover{background:rgba(201,168,76,0.08);border-color:rgba(201,168,76,0.4);}
+.ai-qcard:active{background:rgba(201,168,76,0.12);}
+.ai-qcard-icon{width:32px;height:32px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.ai-qcard-text{font-size:13px;color:var(--text);line-height:1.4;flex:1;}
+.ai-qcard-arrow{color:var(--gold);opacity:0.6;}
+
+/* 对话区域 */
+.ai-chat-zone{position:absolute;top:430px;left:0;right:0;bottom:80px;padding:0 16px;overflow-y:auto;scrollbar-width:none;}
+.ai-chat-zone::-webkit-scrollbar{display:none;}
+.ai-msg-row{display:flex;gap:10px;margin-bottom:14px;}
+.ai-msg-row.user{justify-content:flex-end;}
+.ai-msg-bubble{max-width:85%;padding:12px 14px;border-radius:16px;font-size:14px;line-height:1.6;}
+.ai-msg-bubble.ai{background:rgba(255,255,255,0.06);border:0.5px solid rgba(201,168,76,0.15);color:var(--text);}
+.ai-msg-bubble.user{background:linear-gradient(135deg,var(--gold-d),var(--gold));color:#1a1200;}
+.ai-msg-time{font-size:10px;color:var(--text3);margin-top:6px;}
+.ai-typing{display:flex;align-items:center;gap:4px;padding:12px 16px;background:rgba(255,255,255,0.06);border-radius:16px;border:0.5px solid rgba(201,168,76,0.15);width:fit-content;}
+.ai-typing-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:typing-bounce 1.4s ease-in-out infinite;}
+.ai-typing-dot:nth-child(2){animation-delay:0.2s;}
+.ai-typing-dot:nth-child(3){animation-delay:0.4s;}
+@keyframes typing-bounce{0%,80%,100%{opacity:0.3;transform:scale(0.8);}40%{opacity:1;transform:scale(1);}}
+
+/* 输入区域 */
+.ai-input-zone{position:absolute;bottom:0;left:0;right:0;height:80px;background:rgba(10,6,18,0.98);border-top:0.5px solid rgba(201,168,76,0.15);display:flex;align-items:center;padding:12px 16px 20px;gap:10px;}
+.ai-input-wrap{flex:1;height:44px;background:rgba(255,255,255,0.06);border:0.5px solid rgba(201,168,76,0.2);border-radius:22px;display:flex;align-items:center;padding:0 16px;}
+.ai-input-wrap:focus-within{border-color:rgba(201,168,76,0.5);background:rgba(255,255,255,0.08);}
+.ai-input{flex:1;background:transparent;border:none;font-size:14px;color:var(--text);outline:none;font-family:inherit;}
+.ai-input::placeholder{color:var(--text3);}
+.ai-send-btn{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--gold-d),var(--gold));display:flex;align-items:center;justify-content:center;cursor:pointer;border:none;box-shadow:0 4px 16px rgba(201,168,76,0.3);transition:transform 0.2s;}
+.ai-send-btn:active{transform:scale(0.9);}
+
+/* 悬浮快捷入口（首页） */
+.ai-float-btn{position:absolute;right:16px;top:120px;width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--gold-d),var(--gold));display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 6px 24px rgba(201,168,76,0.4);z-index:8;transition:transform 0.2s;}
+.ai-float-btn:hover{transform:scale(1.1);}
+.ai-float-inner{width:42px;height:42px;border-radius:50%;background:rgba(26,18,0,0.9);display:flex;align-items:center;justify-content:center;border:2px solid rgba(201,168,76,0.5);}
+.ai-float-badge{position:absolute;top:-4px;right:-4px;background:#f5222d;color:#fff;font-size:9px;font-weight:700;padding:2px 6px;border-radius:8px;border:1px solid rgba(255,255,255,0.2);}</style>
 </head>
 <body>
 
@@ -245,6 +315,18 @@ body{background:#1a1a2e;display:flex;justify-content:center;align-items:flex-sta
 
     <!-- ═══ HOME ═══ -->
     <div class="page" id="pg-home">
+      <!-- AI 投顾悬浮入口 -->
+      <div class="ai-float-btn" onclick="openAIAdvisor()">
+        <div class="ai-float-badge">7×24</div>
+        <div class="ai-float-inner">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="3" fill="#c9a84c"/>
+            <path d="M12 4C7.6 4 4 7.6 4 12s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8z" stroke="#c9a84c" stroke-width="1.3" fill="none"/>
+            <circle cx="12" cy="12" r="6" stroke="#c9a84c" stroke-width="0.7" fill="none" opacity="0.4"/>
+            <circle cx="12" cy="12" r="9" stroke="#c9a84c" stroke-width="0.4" fill="none" opacity="0.2"/>
+          </svg>
+        </div>
+      </div>
       <div class="home-header">
         <div class="home-date">2026年4月14日 星期二</div>
         <div class="home-greeting">你好，金融学习者</div>
@@ -526,6 +608,101 @@ body{background:#1a1a2e;display:flex;justify-content:center;align-items:flex-sta
       <div class="msg-item" style="border-color:rgba(201,168,76,0.25);"><div class="msg-dot-box" style="background:rgba(201,168,76,0.12);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></div><div style="flex:1;"><div class="msg-item-title" style="color:var(--gold);">订单通知</div><div class="msg-item-sub" style="color:var(--gold);opacity:0.7;">「读懂财报」购买成功，已解锁全48期</div></div></div>
     </div>
 
+    <!-- ═══ AI 投顾数字人 ═══ -->
+    <div class="ai-page hidden" id="pg-ai-advisor">
+      <!-- 顶部导航 -->
+      <div class="ai-header">
+        <div class="ai-close-btn" onclick="closeAIAdvisor()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </div>
+        <div class="ai-title-wrap">
+          <div class="ai-status-dot"></div>
+          <span class="ai-title-text">AI 投顾数字人</span>
+        </div>
+        <div class="ai-time-badge">7×24 在线</div>
+      </div>
+
+      <!-- 数字人虚拟形象 -->
+      <div class="ai-avatar-zone">
+        <div class="ai-avatar-frame">
+          <div class="ai-avatar-ring"></div>
+          <div class="ai-avatar-ring2"></div>
+          <div class="ai-avatar-inner">
+            <div class="ai-avatar-glass">
+              <div class="ai-avatar-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="3" fill="#1a1200"/>
+                  <path d="M12 4C7.6 4 4 7.6 4 12s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8z" stroke="#1a1200" stroke-width="1.5" fill="none"/>
+                  <circle cx="12" cy="12" r="5.5" stroke="#1a1200" stroke-width="0.8" fill="none" opacity="0.6"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ai-avatar-name">智投顾问 · 金灵</div>
+        <div class="ai-avatar-title">专属您的财富管理智能伙伴</div>
+      </div>
+
+      <!-- AI个性化推荐 - 快捷提问卡片 -->
+      <div class="ai-quick-zone">
+        <div class="ai-quick-label">✦ 智能推荐 · 快捷提问</div>
+        <div class="ai-quick-cards">
+          <div class="ai-qcard" onclick="askAI('帮我总结今日市场')">
+            <div class="ai-qcard-icon" style="background:linear-gradient(135deg,#1a0a00,#3d2000);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="2"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
+            </div>
+            <span class="ai-qcard-text">帮我总结今日市场行情与热点板块</span>
+            <svg class="ai-qcard-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          </div>
+          <div class="ai-qcard" onclick="askAI('我的自选股有何异动')">
+            <div class="ai-qcard-icon" style="background:linear-gradient(135deg,#0a1a10,#0d3320);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#52c41a" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <span class="ai-qcard-text">我的自选股今日有何异动？需要关注哪些信号？</span>
+            <svg class="ai-qcard-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          </div>
+          <div class="ai-qcard" onclick="askAI('推荐今日投资机会')">
+            <div class="ai-qcard-icon" style="background:linear-gradient(135deg,#0a0520,#1a0a40);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#b39ddb" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <span class="ai-qcard-text">根据我的投资偏好，推荐今日值得关注的标的</span>
+            <svg class="ai-qcard-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          </div>
+          <div class="ai-qcard" onclick="askAI('解读宏观政策影响')">
+            <div class="ai-qcard-icon" style="background:linear-gradient(135deg,#1a1000,#3d2800);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </div>
+            <span class="ai-qcard-text">最新宏观政策对市场有何影响？如何解读？</span>
+            <svg class="ai-qcard-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- 对话区域 -->
+      <div class="ai-chat-zone" id="ai-chat-area">
+        <!-- AI欢迎消息 -->
+        <div class="ai-msg-row">
+          <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--gold-d),var(--gold));display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1a1200" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 4C7.6 4 4 7.6 4 12s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8z"/></svg>
+          </div>
+          <div>
+            <div class="ai-msg-bubble ai">尊敬的投资者，您好！我是您的专属AI投顾「金灵」。7×24小时全天候为您服务，可为您提供：<br><br>• 实时市场解读与投资建议<br>• 自选股异动监控与预警<br>• 个性化资产配置方案<br>• 宏观政策深度分析<br><br>请随时向我提问，或点击上方快捷卡片开始对话。</div>
+            <div class="ai-msg-time">今日 10:36</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 输入区域 -->
+      <div class="ai-input-zone">
+        <div class="ai-input-wrap">
+          <input type="text" class="ai-input" id="ai-input-field" placeholder="向金灵提问..." onkeypress="handleAIInput(event)">
+        </div>
+        <button class="ai-send-btn" onclick="sendAIMessage()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a1200" stroke-width="2.5" stroke-linecap="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2" fill="#1a1200"/></svg>
+        </button>
+      </div>
+    </div>
+
     <!-- ═══ MY ═══ -->
     <div class="page hidden" id="pg-my">
       <div class="my-header-bg">
@@ -578,7 +755,22 @@ body{background:#1a1a2e;display:flex;justify-content:center;align-items:flex-sta
   </div><!-- /screen -->
 
   <!-- TAB BAR -->
-  <div class="tab-bar">
+  <div class="tab-bar" style="position:relative;">
+    <!-- AI 投顾中心按钮 -->
+    <div class="ai-btn-center" onclick="openAIAdvisor()">
+      <div class="ai-glow-ring"></div>
+      <div class="ai-btn-inner">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="4" fill="#c9a84c"/>
+          <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2z" stroke="#c9a84c" stroke-width="1.5" fill="none"/>
+          <circle cx="12" cy="12" r="8" stroke="#c9a84c" stroke-width="0.8" fill="none" opacity="0.5"/>
+          <line x1="12" y1="4" x2="12" y2="8" stroke="#c9a84c" stroke-width="1.2"/>
+          <line x1="12" y1="16" x2="12" y2="20" stroke="#c9a84c" stroke-width="1.2"/>
+          <line x1="4" y1="12" x2="8" y2="12" stroke="#c9a84c" stroke-width="1.2"/>
+          <line x1="16" y1="12" x2="20" y2="12" stroke="#c9a84c" stroke-width="1.2"/>
+        </svg>
+      </div>
+    </div>
     <div class="tab-item active" id="tab-home" onclick="switchTab('home')">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" id="ti-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" fill="#c9a84c" fill-opacity="0.9"/><polyline points="9 22 9 12 15 12 15 22" stroke="#c9a84c" stroke-width="1.5" fill="none"/></svg>
       <span class="tab-label" style="color:var(--gold);">首页</span>
@@ -587,6 +779,8 @@ body{background:#1a1a2e;display:flex;justify-content:center;align-items:flex-sta
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" id="ti-discover"><circle cx="12" cy="12" r="10" stroke="rgba(240,234,214,0.3)" stroke-width="1.8"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" fill="rgba(240,234,214,0.3)"/></svg>
       <span class="tab-label">发现</span>
     </div>
+    <!-- 中间留空给AI按钮 -->
+    <div class="tab-item" style="flex:1;pointer-events:none;"></div>
     <div class="tab-item" id="tab-msg" onclick="switchTab('msg')">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" id="ti-msg"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="rgba(240,234,214,0.3)" stroke-width="1.8"/></svg>
       <span class="tab-label">消息</span>
@@ -709,6 +903,99 @@ function updateClock() {
 }
 updateClock();
 setInterval(updateClock, 10000);
+
+// ═══ AI 投顾数字人 ═══
+function openAIAdvisor() {
+  document.getElementById('pg-ai-advisor').classList.remove('hidden');
+  document.querySelector('.tab-bar').style.display = 'none';
+  document.querySelector('.status-bar').style.display = 'none';
+}
+
+function closeAIAdvisor() {
+  document.getElementById('pg-ai-advisor').classList.add('hidden');
+  const currentPage = pageStack[pageStack.length - 1];
+  const isTab = Object.values(tabPages).includes(currentPage);
+  document.querySelector('.tab-bar').style.display = isTab ? 'flex' : 'none';
+  document.querySelector('.status-bar').style.display = 'flex';
+}
+
+function askAI(question) {
+  addUserMessage(question);
+  showAITyping();
+  setTimeout(() => {
+    hideAITyping();
+    addAIResponse(generateAIResponse(question));
+  }, 1500);
+}
+
+function sendAIMessage() {
+  const input = document.getElementById('ai-input-field');
+  const text = input.value.trim();
+  if (!text) return;
+  addUserMessage(text);
+  input.value = '';
+  showAITyping();
+  setTimeout(() => {
+    hideAITyping();
+    addAIResponse(generateAIResponse(text));
+  }, 1800);
+}
+
+function handleAIInput(e) {
+  if (e.key === 'Enter') sendAIMessage();
+}
+
+function addUserMessage(text) {
+  const area = document.getElementById('ai-chat-area');
+  const row = document.createElement('div');
+  row.className = 'ai-msg-row user';
+  row.innerHTML = `<div class="ai-msg-bubble user">${text}</div>`;
+  area.appendChild(row);
+  area.scrollTop = area.scrollHeight;
+}
+
+function showAITyping() {
+  const area = document.getElementById('ai-chat-area');
+  const typing = document.createElement('div');
+  typing.id = 'ai-typing-indicator';
+  typing.className = 'ai-msg-row';
+  typing.innerHTML = `<div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--gold-d),var(--gold));display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1a1200" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 4C7.6 4 4 7.6 4 12s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8z"/></svg></div><div class="ai-typing"><div class="ai-typing-dot"></div><div class="ai-typing-dot"></div><div class="ai-typing-dot"></div></div>`;
+  area.appendChild(typing);
+  area.scrollTop = area.scrollHeight;
+}
+
+function hideAITyping() {
+  const typing = document.getElementById('ai-typing-indicator');
+  if (typing) typing.remove();
+}
+
+function addAIResponse(text) {
+  const area = document.getElementById('ai-chat-area');
+  const now = new Date();
+  const timeStr = now.getHours() + ':' + (now.getMinutes()<10?'0':'') + now.getMinutes();
+  const row = document.createElement('div');
+  row.className = 'ai-msg-row';
+  row.innerHTML = `<div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--gold-d),var(--gold));display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1a1200" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 4C7.6 4 4 7.6 4 12s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8z"/></svg></div><div><div class="ai-msg-bubble ai">${text}</div><div class="ai-msg-time">今日 ${timeStr}</div></div>`;
+  area.appendChild(row);
+  area.scrollTop = area.scrollHeight;
+}
+
+function generateAIResponse(q) {
+  const lower = q.toLowerCase();
+  if (lower.includes('市场') || lower.includes('行情')) {
+    return '📊 今日市场分析：<br><br>A股三大指数集体收涨，上证指数涨1.23%至3,312点，深证成指涨0.87%。科技与新能源板块领涨，银行板块小幅回调。<br><br>💡 投资建议：<br>• 短期关注科技股的持续性<br>• 中长期可布局消费复苏主线<br>• 建议保持仓位灵活，不宜追高';
+  }
+  if (lower.includes('自选') || lower.includes('异动')) {
+    return '🔍 自选股异动监控：<br><br>您关注的5只个股今日表现：<br>• 贵州茅台 +2.3% 成交放量<br>• 中国平安 -0.5% 持续震荡<br>• 招商银行 +1.1% 突破阻力位<br>• 宁德时代 +3.8% 创近期新高 ⚠️<br>• 中芯国际 +0.8% 温和上涨<br><br>⚠️ 宁德时代成交量放大3倍，建议关注后续动能持续性。';
+  }
+  if (lower.includes('推荐') || lower.includes('机会') || lower.includes('标的')) {
+    return '🎯 今日投资机会推荐：<br><br>基于您的投资偏好（均衡型、中风险），为您筛选：<br><br>• 短期机会：半导体ETF（受益政策利好）<br>• 中期布局：消费龙头股（估值修复空间）<br>• 长期持有：高股息蓝筹（稳健收益）<br><br>📌 风险提示：市场情绪回暖但需警惕回调，建议分批建仓。';
+  }
+  if (lower.includes('政策') || lower.includes('宏观')) {
+    return '📈 宏观政策解读：<br><br>本周重磅政策影响：<br>• 央行保持流动性合理充裕，利好成长股<br>• 科技创新税收优惠延续，半导体板块受益<br>• 房地产支持政策落地，关注优质房企<br><br>💡 策略建议：政策窗口期可适当加仓政策受益板块，但需控制仓位比例。';
+  }
+  return '感谢您的提问！让我为您分析...<br><br>基于当前市场环境和您的投资情况，我的建议是：<br><br>• 保持理性投资心态，不追涨杀跌<br>• 关注基本面扎实的优质标的<br>• 分散配置降低单一风险<br><br>如需更详细的分析，请告诉我具体关注的方向，我会为您提供更精准的建议。';
+}
 </script>
 </body>
 </html>
